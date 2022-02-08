@@ -196,7 +196,9 @@ with ctx:
     # ifos, so just send the first ifo
     template_mem = zeros(tlen, dtype=complex64)
     # Calculate time delay to each detector
-    time_slides = t_gps + args.time_shift * np.arange(1 + args.num_slides)
+    time_slides = {
+        ifo: t_gps + args.time_shift * np.arange(1 + args.num_slides) * n_ifo
+        for n_ifo, ifo in enumerate(args.instruments)}
     #time_delay_idx_sky = {
     #    ifo: [
     #        int(round(
@@ -214,7 +216,7 @@ with ctx:
                 detector.Detector(ifo).time_delay_from_earth_center(ra, dec, t)
                 * sample_rate
                 ))
-                for t in time_slides
+                for t in time_slides[ifo]
             ]
         for ifo in args.instruments
         }
