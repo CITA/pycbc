@@ -40,6 +40,7 @@ from pycbc.detector import Detector
 import pycbc.cosmology
 from .coordinates import spherical_to_cartesian as _spherical_to_cartesian
 from pycbc.neutron_stars import ns_g_mass_to_ns_compactness, ns_g_mass_to_ns_b_mass
+from pycbc.neutron_stars import PG_ISSO_solver
 try:
     import pykerr
 except ImportError:
