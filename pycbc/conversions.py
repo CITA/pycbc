@@ -35,7 +35,6 @@ import lal
 import logging
 import sys
 import lalsimulation as lalsim
-import numpy as np
 from pycbc.detector import Detector
 import pycbc.cosmology
 from .coordinates import spherical_to_cartesian as _spherical_to_cartesian
@@ -1626,5 +1625,5 @@ def remnant_mass(eta, ns_g_mass, ns_sequence, chi, incl):
 # Vectorized version of remnant_mass. The third argument (NS equilibrium    #
 # sequence) is excluded from vectorisation.                                 #
 #############################################################################
-remnant_masses = np.vectorize(remnant_mass)
+remnant_masses = numpy.vectorize(remnant_mass)
 remnant_masses.excluded.add(2)
