@@ -32,8 +32,6 @@ from __future__ import division
 import copy
 import numpy
 import lal
-import logging
-import sys
 import lalsimulation as lalsim
 from pycbc.detector import Detector
 import pycbc.cosmology
